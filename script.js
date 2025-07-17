@@ -3,19 +3,26 @@ let btn = document.querySelector("#verificar");
 btn.addEventListener("click", verificarTudo);
 
 function verificarTudo() {
-  let masc = document.querySelector("#masc");
-  let fem = document.querySelector("#fem");
   let nascimento = document.querySelector("#txtano");
   let img = document.querySelector("#img");
   let data = new Date();
   let ano = data.getFullYear();
-  if (nascimento.value.length == 0 || nascimento.value > ano) {
-    window.alert("[ERRO] Verifique os dados e tente novamente!");
-  }
   let sex = document.getElementsByName("sx");
-  let calc = ano - nascimento.value;
   let resposta = document.querySelector("#resposta");
+
+  let anoNasc = Number(nascimento.value)
+  let calc = ano - anoNasc;
   let genero = "";
+
+  
+  if (nascimento.value.length == 0 || anoNasc === ano || nascimento < 1900) {
+    window.alert("[ERRO] Verifique os dados e tente novamente!");
+    return;
+  }
+  if (calc === ano){
+    window.alert('[ERRO] Verifique os dados e tente novamente!')
+  }
+
   if (sex[0].checked) {
     genero = "Homem";
     if (calc >= 0 && calc < 12) {
