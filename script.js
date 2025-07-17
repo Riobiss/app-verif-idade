@@ -15,12 +15,13 @@ function verificarTudo() {
   let genero = "";
 
   
-  if (nascimento.value.length == 0 || anoNasc === ano || nascimento < 1900) {
+  if (nascimento.value.length == 0 || anoNasc === ano || anoNasc < 1900) {
     window.alert("[ERRO] Verifique os dados e tente novamente!");
     return;
   }
   if (calc === ano){
     window.alert('[ERRO] Verifique os dados e tente novamente!')
+    return;
   }
 
   if (sex[0].checked) {
